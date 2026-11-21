@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b45">
+  <title>لؤلؤة | نظام إدارة عيادة الأسنان</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div><strong>لؤلؤة</strong><span>عيادة الأسنان</span></div>
+      </div>
+      <div class="side-label">القائمة الرئيسية</div>
+      <nav class="side-nav">
+        <a class="nav-link active" href="#dashboard" data-page="dashboard"><span>▦</span> الرئيسية</a>
+        <a class="nav-link" href="#patients" data-page="patients"><span>♙</span> المرضى</a>
+        <a class="nav-link" href="#appointments" data-page="appointments"><span>▣</span> المواعيد</a>
+        <a class="nav-link" href="#services" data-page="services"><span>✚</span> خدمات العيادة</a>
+        <a class="nav-link" href="#clinic" data-page="clinic"><span>⌂</span> عن العيادة</a>
+      </nav>
+      <div class="sidebar-card">
+        <div class="mini-icon">♡</div>
+        <h3>ابتسامتك تهمنا</h3>
+        <p>رعاية لطيفة، واهتمام بكل تفصيلة.</p>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="doctor-mini"><div class="avatar">د</div><div><b>د.روناء سليمان</b><small>طبيبة أسنان</small></div><span class="online-dot"></span></div>
+        <small class="version">واجهة تجريبية — Front-End</small>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+        <div><p class="eyebrow">الأربعاء، أهلاً بيك في يوم جديد</p><h1 id="pageTitle">الرئيسية</h1></div>
+        <div class="top-actions">
+          <div class="today-chip"><span>◷</span><span id="todayDate"></span></div>
+          <button class="icon-btn" title="الإشعارات">♧<i></i></button>
+          <div class="top-avatar">ر</div>
+        </div>
+      </header>
+
+      <section class="page active" id="dashboard">
+        <div class="welcome-banner">
+          <div><span class="banner-tag">لوحة التحكم</span><h2>صباح الابتسامة 🌿</h2><p>تابعي شغل العيادة والمرضى والمواعيد من مكان واحد.</p><button class="btn btn-light" data-open-patient>＋ إضافة مريض جديد</button></div>
+          <div class="banner-art" aria-hidden="true"><div class="tooth">R</div><span class="spark s1">*S</span><span class="spark s2">.</span><span class="spark s3">·</span></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon teal">♙</div><span>إجمالي المرضى</span><strong id="statPatients">0</strong><small>كل ملفات المرضى المسجلة</small></article>
+          <article class="stat-card"><div class="stat-icon peach">▣</div><span>مواعيد اليوم</span><strong id="statToday">0</strong><small>مواعيد مسجلة لهذا اليوم</small></article>
+          <article class="stat-card"><div class="stat-icon lavender">✓</div><span>حالات مكتملة</span><strong id="statDone">0</strong><small>زيارات تم الانتهاء منها</small></article>
+          <article class="stat-card"><div class="stat-icon mint">♡</div><span>خدمات العيادة</span><strong>06</strong><small>خدمات متاحة للمرضى</small></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel appointments-panel">
+            <div class="panel-heading"><div><span class="eyebrow">جدول المتابعة</span><h3>مواعيد قريبة</h3></div><a href="#appointments" data-page-link="appointments">عرض الكل ←</a></div>
+            <div class="table-wrap"><table><thead><tr><th>المريض</th><th>الخدمة</th><th>الوقت</th><th>الحالة</th></tr></thead><tbody id="upcomingRows"></tbody></table></div>
+          </section>
+          <section class="panel doctor-panel">
+            <div class="panel-heading"><div><span class="eyebrow">تعرفي علينا</span><h3>طبيبة العيادة</h3></div><span class="doctor-badge"></span></div>
+            <div class="doctor-profile"><div class="doctor-photo">ر.س</div><div><h4>د.روناء سليمان</h4><p>أخصائي طب وتجميل الأسنان</p><div class="rating">★★★★★ <small>خبرة 8 سنوات</small></div></div></div>
+            <p class="doctor-bio">نهتم بتقديم رعاية مريحة وشخصية لكل مريض، مع شرح خطة العلاج واستخدام أحدث الأساليب المناسبة.</p>
+            <div class="doctor-meta"><span>◷ السبت – الخميس</span><span>♧ 10 ص – 8 م</span></div>
+            <button class="btn btn-outline full" data-page-link="clinic">تفاصيل العيادة</button>
+          </section>
+        </div>
+        <section class="panel quick-panel"><div class="panel-heading"><div><span class="eyebrow">اختصارات</span><h3>تحتاجي تعملي إيه؟</h3></div></div><div class="quick-actions"><button data-open-patient><b>＋</b><span>تسجيل مريض</span></button><button data-page-link="appointments"><b>▣</b><span>مراجعة المواعيد</span></button><button data-page-link="services"><b>✚</b><span>الخدمات والأسعار</span></button><button data-page-link="clinic"><b>⌂</b><span>بيانات العيادة</span></button></div></section>
+      </section>
+
+      <section class="page" id="patients">
+        <div class="section-intro"><div><span class="eyebrow">ملفات العيادة</span><h2>قائمة المرضى</h2><p>بيانات تجريبية للتوضيح، ويمكنك إضافة مرضى جدد.</p></div><button class="btn btn-primary" data-open-patient>＋ إضافة مريض</button></div>
+        <div class="panel">
+          <div class="toolbar"><label class="search-box">⌕ <input id="patientSearch" type="search" placeholder="ابحثي بالاسم أو رقم الهاتف..."></label><span class="result-count" id="patientCount"></span></div>
+          <div class="table-wrap"><table><thead><tr><th>الاسم</th><th>رقم الهاتف</th><th>العمر</th><th>آخر زيارة</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="patientRows"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="appointments">
+        <div class="section-intro"><div><span class="eyebrow">تنظيم الوقت</span><h2>مواعيد العيادة</h2><p>متابعة الحجوزات وحالة كل زيارة.</p></div><button class="btn btn-primary" id="addAppointmentBtn">＋ موعد جديد</button></div>
+        <div class="stats-grid compact"><article class="stat-card"><span>كل المواعيد</span><strong id="allAppointments">0</strong></article><article class="stat-card"><span>قيد الانتظار</span><strong id="pendingAppointments">0</strong></article><article class="stat-card"><span>مكتملة</span><strong id="completedAppointments">0</strong></article></div>
+        <div class="panel"><div class="toolbar"><label class="search-box">⌕ <input id="appointmentSearch" type="search" placeholder="ابحثي عن مريض..."></label><select id="statusFilter"><option value="all">كل الحالات</option><option value="قيد الانتظار">قيد الانتظار</option><option value="مكتمل">مكتمل</option><option value="ملغي">ملغي</option></select></div><div class="table-wrap"><table><thead><tr><th>المريض</th><th>التاريخ</th><th>الوقت</th><th>نوع الزيارة</th><th>الحالة</th><th>تغيير الحالة</th></tr></thead><tbody id="appointmentRows"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="services">
+        <div class="section-intro"><div><span class="eyebrow">رعاية متكاملة</span><h2>خدمات العيادة</h2><p>مجموعة من خدمات طب الأسنان، والأسعار المعروضة استرشادية.</p></div></div>
+        <div class="services-grid">
+          <article class="service-card"><div class="service-icon">.</div><h3>الكشف والاستشارة</h3><p>فحص شامل للأسنان واللثة وتحديد خطة العلاج المناسبة.</p><strong>من 200 ج.م</strong></article>
+          <article class="service-card"><div class="service-icon">..</div><h3>تنظيف الأسنان</h3><p>إزالة الجير والترسبات والعناية بصحة اللثة.</p><strong>من 500 ج.م</strong></article>
+          <article class="service-card"><div class="service-icon">...</div><h3>تبييض الأسنان</h3><p>خيارات تجميلية لتحسين لون الأسنان بعد الكشف.</p><strong>من 1,500 ج.م</strong></article>
+          <article class="service-card"><div class="service-icon">....</div><h3>حشو الأسنان</h3><p>علاج التسوس وترميم الأسنان بمواد مناسبة.</p><strong>من 600 ج.م</strong></article>
+          <article class="service-card"><div class="service-icon">.....</div><h3>علاج اللثة</h3><p>تقييم مشكلات اللثة ووضع خطة علاج ومتابعة.</p><strong>حسب الحالة</strong></article>
+          <article class="service-card"><div class="service-icon">......</div><h3>تقويم الأسنان</h3><p>استشارة لتقييم انتظام الأسنان وخيارات التقويم.</p><strong>بعد التقييم</strong></article>
+        </div>
+        <p class="notice">* الأسعار توضيحية داخل المشروع وليست عرضًا حقيقيًا من عيادة. يحدد الطبيب التكلفة بعد الفحص.</p>
+      </section>
+
+      <section class="page" id="clinic">
+        <div class="section-intro"><div><span class="eyebrow">مكان راحتك</span><h2>عن عيادة لؤلؤة</h2><p>مساحة آمنة وهادئة للاهتمام بصحة ابتسامتك.</p></div></div>
+        <div class="clinic-layout"><div class="clinic-hero"><div class="clinic-symbol"></div><span class="banner-tag">Pearl Dental Clinic</span><h2>ابتسامة صحية تبدأ<br>من رعاية صح</h2><p>نؤمن أن زيارة طبيب الأسنان لازم تكون تجربة مريحة وواضحة. بنشرح للمريض حالته وخيارات العلاج قبل البدء.</p></div>
+          <div class="panel clinic-info"><h3>بيانات العيادة</h3><div class="info-line"><span>الطبيبة</span><b>د.روناء سليمان </b></div><div class="info-line"><span>التخصص</span><b>طب وتجميل الأسنان</b></div><div class="info-line"><span>العنوان</span><b>شارع العيادات — القاهرة</b></div><div class="info-line"><span>أيام العمل</span><b>السبت إلى الخميس</b></div><div class="info-line"><span>مواعيد العمل</span><b>10 صباحًا – 8 مساءً</b></div><div class="info-line"><span>الهاتف</span><b dir="ltr">0100 000 0000</b></div><button class="btn btn-primary full" id="contactBtn">تواصل مع العيادة</button></div></div>
+        <div class="panel workflow"><span class="eyebrow">رحلتك معانا</span><h3>نظام العمل داخل العيادة</h3><div class="steps"><div><b>01</b><h4>حجز الموعد</h4><p>تحديد اليوم والوقت ونوع الزيارة.</p></div><div><b>02</b><h4>فتح الملف</h4><p>تسجيل بيانات المريض والتاريخ المرضي.</p></div><div><b>03</b><h4>الكشف والتقييم</h4><p>فحص الحالة وشرح التشخيص والخطة.</p></div><div><b>04</b><h4>العلاج والمتابعة</h4><p>تنفيذ الخطة وتحديد موعد المتابعة.</p></div></div></div>
+      </section>
+      <footer class="footer"><span>R.S</span><span> <b>♥</b></span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="patientModal">
+    <form class="modal" id="patientForm">
+      <button type="button" class="close-modal" data-close-modal>×</button><span class="eyebrow">ملف جديد</span><h2>إضافة مريض</h2><p>أدخلي البيانات الأساسية لإنشاء ملف تجريبي.</p>
+      <div class="form-grid"><label>اسم المريض<input name="name" required placeholder="الاسم بالكامل"></label><label>رقم الهاتف<input name="phone" required inputmode="tel" placeholder="01xxxxxxxxx"></label><label>العمر<input name="age" type="number" min="1" max="110" required placeholder="مثلاً 25"></label><label>آخر زيارة<input name="visit" type="date"></label><label class="wide">ملاحظات مختصرة<textarea name="notes" rows="3" placeholder="سبب الزيارة أو ملاحظات..."></textarea></label></div>
+      <div class="modal-actions"><button type="button" class="btn btn-outline" data-close-modal>إلغاء</button><button class="btn btn-primary" type="submit">حفظ المريض</button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
